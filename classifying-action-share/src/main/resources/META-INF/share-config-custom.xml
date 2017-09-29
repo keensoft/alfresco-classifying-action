@@ -1,0 +1,86 @@
+<alfresco-config>
+	<config evaluator="string-compare" condition="DocLibActions">		
+		<actions>
+		
+			<!-- Rename action by classifier -->
+			<action id="rename-action" icon="rename-action-icon" type="javascript" label="rename-action.label">
+				<param name="function">onActionWaiting</param>				
+				<param name="action">classifying-action</param>
+				<param name="successMessage">classifying-action.success</param>
+				<param name="failureMessage">classifying-action.error</param>						
+				<param name="configuration">rename</param>
+				<permissions>
+					<permission allow="true">Write</permission>
+				</permissions>				
+			</action>			
+			
+			<!-- Pdf protect action by classifier -->
+			<action id="pdf-protect-action" icon="pdf-protect-action-icon" type="javascript" label="pdf-protect-action.label">
+				<param name="function">onActionWaiting</param>				
+				<param name="action">classifying-action</param>
+				<param name="successMessage">classifying-action.success</param>
+				<param name="failureMessage">classifying-action.error</param>
+				<param name="configuration">pdf-protect</param>						
+				<permissions>
+					<permission allow="true">Write</permission>
+				</permissions>				
+			</action>
+			
+			<!-- Send by mail action by classifier -->
+			<action id="send-by-mail-action" icon="send-by-mail-action-icon" type="javascript" label="send-by-mail-action.label">
+				<param name="function">onActionWaiting</param>				
+				<param name="action">classifying-action</param>
+				<param name="successMessage">classifying-action.success</param>
+				<param name="failureMessage">classifying-action.error</param>
+				<param name="configuration">send-by-mail</param>						
+				<permissions>
+					<permission allow="true">Write</permission>
+				</permissions>				
+			</action>
+			
+			<!-- Send password by mail action by classifier -->
+			<action id="send-password-by-mail-action" icon="send-password-by-mail-action-icon" type="javascript" label="send-password-by-mail-action.label">
+				<param name="function">onActionWaiting</param>				
+				<param name="action">classifying-action</param>
+				<param name="successMessage">classifying-action.success</param>
+				<param name="failureMessage">classifying-action.error</param>
+				<param name="configuration">send-password-by-mail</param>						
+				<permissions>
+					<permission allow="true">Write</permission>
+				</permissions>				
+			</action>
+		</actions>
+		<actionGroups>
+			<actionGroup id="document-browse">
+				<action index="500" id="rename-action" />
+				<action index="600" id="pdf-protect-action" />
+				<action index="700" id="send-password-by-mail-action" />
+				<action index="800" id="send-by-mail-action" />
+			</actionGroup>
+			<actionGroup id="document-details">
+				<action index="500" id="rename-action" />
+				<action index="600" id="pdf-protect-action" />
+				<action index="700" id="send-password-by-mail-action" />
+				<action index="800" id="send-by-mail-action" />
+			</actionGroup>
+			<actionGroup id="folder-browse">
+				<action index="500" id="rename-action" />
+				<action index="600" id="pdf-protect-action" />
+				<action index="700" id="send-password-by-mail-action" />
+				<action index="800" id="send-by-mail-action" />
+			</actionGroup>
+			<actionGroup id="floder-details">
+				<action index="500" id="rename-action" />
+				<action index="600" id="pdf-protect-action" />
+				<action index="700" id="send-password-by-mail-action" />
+				<action index="800" id="send-by-mail-action" />
+			</actionGroup>
+		</actionGroups>
+	</config>
+
+	<config evaluator="string-compare" condition="DocLibCustom">
+		<dependencies>
+			<js src="components/documentlibrary/js/on-action-waiting.js" />
+		</dependencies>
+	</config>	
+</alfresco-config>
